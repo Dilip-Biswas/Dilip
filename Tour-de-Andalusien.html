@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<title>Tour de Andalusien  - Februar, 2011</title>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?"></script>
+		<script src="js/jquery-1.12.0.js"></script>
+		<script src="js/Tour-de-Andalusien.js"></script>
+		<link href="css/Tour-de-Andalusien.css" rel="stylesheet">
+		<link href="https://storage.googleapis.com/maps-devrel/google.json">
+		
+	</head>
+
+	<body onload="initialize()" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;">
+	<table style="height:100%; width:100%;" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td colspan="3" valign="middle" height="20" bgcolor="#084B8A" align="center">
+			<!-- ============ HEADER SECTION ============== -->
+			<div class = "One">
+			<h1> Tour de Andalusien : Februar, 2011 </h1>
+				<img src="img/1.jpg">
+				<font face="Papyrus"> </font>
+					<nav>
+						<a href="Geo-codierung.html"> <input type="button" value="Geocodierung"></a>
+						<a href="Geo-lokalisierung.html"> <input type="button"  value="Geolokalisierung"></a>
+						<a href="Virtuelle-Strasse.html"> <input type="button" value="Virtuelle Strasse"></a>
+					</nav>
+				
+			</div>
+		</td>
+	</tr>
+			<!-- ============ NAVIGATION BAR SECTION ============== -->
+	<tr>
+		<td colspan="3" valign="middle" height="5" bgcolor="#084B8A" align="right">
+		<font color="#CEE3F6"; font face="Papyrus">
+	<div> 
+	<b>Stadt-Zoomen: </b>
+	<select id="address" >
+		<option value="37.3826399917813,-5.996295000208264">Sevilla</option>
+		<option value="37.17648700163939,-3.597929001227509">Granada</option>
+		<option value="37.06666700202622,-3.366667001788221">Sierra Nevada</option>
+		<option value="36.7196459872271,-4.420018997067069">Malaga</option>
+		<option value="36.14623962089493,-5.342454310584487">Gibraltar</option>
+		<option value="36.0130588118713,-5.605873429527972">Tarifa</option>
+		<option value="36.52968800327907,-6.292656999215195">Cadiz</option>
+	</select>
+
+  <input type="button" onclick="zoomtoaddress()" value="Go!" /> 
+
+	<b>Anfang: </b>
+	<select id="start" onchange="calcRoute();">
+		<option value="37.38572325760699,-5.993978392424041">Catedral de Sevilla</option>
+		<option value="37.37733400006442,-5.986266999952624">Plaza de Espana, Sevilla</option>
+		<option value="37.38631612413899, -6.00127796050271">Rio Guadalquivir, Sevilla</option>
+		<option value="37.1770379639704,-3.591626513862214">The Alhambra, Granada</option>
+		<option value="37.17668329517287,-3.598860506890564">Catedral de Granada</option>
+		<option value="37.17239448059082,-3.585054096718989">Walking Trails and Hilltop View, Granada</option>
+		<option value="37.05727158898856,-3.368075900924138">Veleta, Sierra Nevada</option>
+		<option value="36.72009400005545,-4.420065999872906">Catedral de Malaga</option>
+		<option value="36.72074299992224,-4.410534999947507">Plaza de Toros de La Malagueta, Malaga</option>
+		<option value="36.72124191261914,-4.41721377287725">Teatro de Romano at Alcazaba, Malaga</option>
+		<option value="36.14623962089493,-5.342454310584487">The Rock of Gibraltar</option>
+		<option value="36.00787468415546,-5.607918076913764">Punta de Tarifa</option>
+		<option value="36.00787468415546,-5.607918076913764">La Playa de Tarifa</option>
+		<option value="36.0122793872337,-5.596976214177085">Walking Trail, Tarifa</option>
+		<option value="36.52938054685095,-6.294895817471899">Catedral de Cadiz</option>
+		<option value="36.52780252798001,-6.312511408371365">Castillo de San Sebastean, Cadiz</option>
+	</select>
+
+	<b>Ende: </b>
+	<select id="end" onchange="calcRoute();">
+		<option value="37.37733400006442,-5.986266999952624">Plaza de Espana, Sevilla</option>
+		<option value="37.38572325760699,-5.993978392424041">Catedral de Sevilla</option>
+		<option value="37.38631612413899, -6.00127796050271">Rio Guadalquivir, Sevilla</option>
+		<option value="37.1770379639704,-3.591626513862214">The Alhambra, Granada</option>
+		<option value="37.17668329517287,-3.598860506890564">Catedral de Granada</option>
+		<option value="37.17239448059082,-3.585054096718989">Walking Trails and Hilltop View, Granada</option>
+		<option value="37.05727158898856,-3.368075900924138">Veleta, Sierra Nevada</option>
+		<option value="36.72009400005545,-4.420065999872906">Catedral de Malaga</option>
+		<option value="36.72074299992224,-4.410534999947507">Plaza de Toros de La Malagueta, Malaga</option>
+		<option value="36.72124191261914,-4.41721377287725">Teatro de Romano at Alcazaba, Malaga</option>
+		<option value="36.14623962089493,-5.342454310584487">The Rock of Gibraltar</option>
+		<option value="36.00787468415546,-5.607918076913764">Punta de Tarifa</option>
+		<option value="36.00787468415546,-5.607918076913764">La Playa de Tarifa</option>
+		<option value="36.0122793872337,-5.596976214177085">Walking Trail, Tarifa</option>
+		<option value="36.52938054685095,-6.294895817471899">Catedral de Cadiz</option>
+		<option value="36.52780252798001,-6.312511408371365">Castillo de San Sebastean, Cadiz</option>
+	</select>
+
+	<b>Fahrart: </b> 
+	<select id="mode" onchange="calcRoute();"> 
+		<option value="DRIVING">Auto</option> 
+		<option value="WALKING">Fussweg</option> 
+		<option value="BICYCLING">Fahrrad </option> 
+		<option value="TRANSIT">Zwischenhaltstelle</option> 
+	</select> 
+	</div> 
+		</td>
+	</tr>
+	<tr>
+		<!-- ============ MIDDLE COLUMN (MAIN MAP) ============== -->
+		<td colspan="4" width="100%" valign="right" bgcolor="#fff">
+			<div id="map" style=" border:3px; width:600px; height:700px; float:left"></div>
+			<div id="pano" style="border:3px;width:380px; height:700px; float:left; margin-left:8px; margin-right:8px"></div>
+			<div id="directionsPanel" style="border:3px;float:right; width:25%;"></div>	
+		</td>	
+	</tr>
+
+</table><br>
+</div> 
+
+</body>
+</html>
+
+

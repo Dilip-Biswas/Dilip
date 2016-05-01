@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html ng-app="mapApp">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Maps in AngularJS</title>
+		<link rel="stylesheet" href="css/map.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+		<script src="http://maps.googleapis.com/maps/api/js?&language=en"></script>
+		<script src="js/map.js"></script>
+	</head>
+<body>
+		<h1> Geolokalisierung</h1>
+		<nav>
+			<a href="Tour-de-Andalusien.html"> <input type="button" value="Tour de Andalusien"></a>
+			<a href="Geo-codierung.html"> <input type="button"  value="Geocodierung"></a>
+			<a href="Virtuelle-Strasse.html"> <input type="button" value="Virtuelle Strasse"></a>
+		</nav>
+	
+	
+		<div ng-controller="MapController">
+		<div id="map"></div>
+		<div id="repeat" ng-repeat="marker in markers | orderBy : 'title'">
+			<a id="country_container" href="#" ng-click="openInfoWindow($event, marker)">
+			<label id="names" >{{marker.title}}</label></a></div>
+		</div>
+
+</body>
+</html>

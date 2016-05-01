@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html  ng-app="mapApp">
+	<head>
+		<meta charset="utf-8">
+		<title>  jQuery </title>
+		<link href="css/slider.css" rel="stylesheet">
+		<link href="css/sample1.css" rel="stylesheet">
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+	</head>
+	<body>
+	
+	  <h1>Geocodierung</h1>
+	
+	<nav class = "One">
+			<a href="Tour-de-Andalusien.html"> <input type="button" value="Tour de Andalusien"></a>
+			<a href="Geo-lokalisierung.html"> <input type="button"  value="Geolokalisierung"></a>
+			<a href="Virtuelle-Strasse.html"> <input type="button" value="Virtuelle Strasse"></a>
+	</nav>
+	
+	<b>Anfang: </b>
+    <input type="text" id="start" value="">
+    <b>Ende: </b>
+    <input type="text"  id="end" value="">
+	<input type="button" value="Suchen" onclick="calcRoute();">
+    </div>
+	
+	<p id="demo"></p>
+	   <div id="map-canvas"></div>
+			<section>
+				<div class="slider">
+					<div class="slide-viewer">
+						<div class="slide-group">
+							<div class="slide">
+								<img src="img/a.jpg" alt="nicht gefunden" />
+								</div>
+								<div class="slide">
+								<img src="img/b.jpg" alt="nicht gefunden" />
+								</div>
+								<div class="slide">
+								<img src="img/c.jpg" alt="nicht gefunden" />
+								</div>
+								<div class="slide">
+								<img src="img/d.jpg" alt="nicht gefunden" />
+								</div>
+								<div class="slide">
+								<img src="img/e.jpg" alt="nicht gefunden" />
+								</div>
+								<div class="slide">
+								<img src="img/f.jpg" alt="nicht gefunden" />
+								</div>
+								<div class="slide">
+								<img src="img/g.jpg" alt="nicht gefunden" />
+								</div>
+								<div class="slide">
+								<img src="img/h.jpg" alt="nicht gefunden" />
+								</div>
+								<div class="slide">
+								<img src="img/i.jpg" alt="nicht gefunden" />
+								</div>
+								<div class="slide">
+								<img src="img/j.jpg" alt="nicht gefunden" />
+								</div>
+						</div>
+					</div>
+					<div class="slide-buttons"></div>
+				</div>
+			</section>
+	<script src="js/jquery-1.12.0.js"></script>
+	<script src="js/sliderchen.js"></script>
+	<script src="js/geoCoding.js"></script>
+	</body>
+</html>
